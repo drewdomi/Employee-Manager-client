@@ -23,6 +23,7 @@ export class CreateEmployeeComponent {
   protected createEmployee = this.formBuilder.group({
     name: ['', [V.required, V.minLength(3), V.maxLength(80)]],
     motherName: ['', [V.required, V.minLength(3), V.maxLength(80)]],
+    rg: ['', [V.required, V.minLength(9), V.maxLength(9)]],
     cpf: ['', [V.required, V.minLength(11), V.maxLength(11)]],
     birthDate: ['', [V.required]],
     civilState: ['', [V.required]],

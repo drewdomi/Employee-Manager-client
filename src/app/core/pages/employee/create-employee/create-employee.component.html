@@ -43,6 +43,23 @@
 
   <fieldset class="w-full">
     <legend>
+      <label for="rg"
+        >RG
+        <strong class="text-red-500">*</strong>
+      </label>
+    </legend>
+    <input
+      id="rg"
+      formControlName="rg"
+      class="input input-bordered w-full"
+      placeholder="12.345.678-9"
+      [minlength]="9"
+      [maxlength]="9"
+    />
+  </fieldset>
+
+  <fieldset class="w-full">
+    <legend>
       <label for="cpf"
         >CPF
         <strong class="text-red-500">*</strong>
