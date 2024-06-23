@@ -14,6 +14,7 @@
       <th>Nome</th>
       <th>CPF</th>
       <th>Data de nascimento</th>
+      <th>Plano</th>
       <th>Estado civil</th>
     </tr>
   </thead>
@@ -34,6 +35,9 @@
         <p>
           {{ employee.birthDate | date : "dd/MM/yyyy" }}
         </p>
+      </td>
+      <td>
+        <p class="uppercase">{{ employee.plan }}</p>
       </td>
       <td>
         <p>{{ employee.civilState }}</p>

@@ -9,6 +9,8 @@ import { RouterModule } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { heroArrowLeft, heroCheck } from '@ng-icons/heroicons/outline';
 import { NgxMaskDirective, NgxMaskPipe } from 'ngx-mask';
+import { CreateEmployee } from '../../../models/employee';
+import { EmployeeService } from '../../../services/employee.service';
 import { civilStates } from '../../../utils/constands/civil-states';
 import { markFormGroupTouched } from '../../../utils/validators/mark-form-group-touched';
 
@@ -30,7 +32,10 @@ import { markFormGroupTouched } from '../../../utils/validators/mark-form-group-
 export class CreateEmployeeComponent {
   civilStates = civilStates;
 
-  constructor(private formBuilder: NonNullableFormBuilder) {}
+  constructor(
+    private formBuilder: NonNullableFormBuilder,
+    private employeeService: EmployeeService
+  ) {}
 
   protected createEmployee = this.formBuilder.group({
     name: ['', [V.required, V.minLength(3), V.maxLength(80)]],
@@ -49,6 +54,16 @@ export class CreateEmployeeComponent {
     if (this.createEmployee.invalid)
       return markFormGroupTouched(this.createEmployee);
 
-    console.log(this.createEmployee.value);
+    this.employeeService
+      .create(this.createEmployee.value as CreateEmployee)
+      .subscribe({
+        next: () => {
+          this.createEmployee.reset();
+          alert('Employee created');
+        },
+        error: () => {
+          alert('Error on employee creation');
+        },
+      });
   }
 }
