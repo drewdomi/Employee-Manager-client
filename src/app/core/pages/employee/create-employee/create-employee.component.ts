@@ -10,6 +10,7 @@ import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { heroArrowLeft, heroCheck } from '@ng-icons/heroicons/outline';
 import { NgxMaskDirective, NgxMaskPipe } from 'ngx-mask';
 import { ToastrService } from 'ngx-toastr';
+
 import { CreateEmployee } from '../../../models/employee';
 import { EmployeeService } from '../../../services/employee.service';
 import { civilStates } from '../../../utils/constands/civil-states';
@@ -20,6 +21,7 @@ import { markFormGroupTouched } from '../../../utils/validators/mark-form-group-
   selector: 'app-create-employee',
   templateUrl: './create-employee.component.html',
   styleUrl: './create-employee.component.scss',
+  viewProviders: [provideIcons({ heroCheck, heroArrowLeft })],
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -28,7 +30,6 @@ import { markFormGroupTouched } from '../../../utils/validators/mark-form-group-
     RouterModule,
     NgIconComponent,
   ],
-  viewProviders: [provideIcons({ heroCheck, heroArrowLeft })],
 })
 export class CreateEmployeeComponent {
   civilStates = civilStates;
