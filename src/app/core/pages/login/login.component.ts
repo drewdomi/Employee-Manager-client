@@ -1,12 +1,24 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import {
+  NonNullableFormBuilder,
+  ReactiveFormsModule,
+  Validators as V,
+} from '@angular/forms';
+import { NgIconComponent } from '@ng-icons/core';
 
 @Component({
   standalone: true,
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, NgIconComponent],
 })
-export class LoginComponent {}
+export class LoginComponent {
+  constructor(private formBuilder: NonNullableFormBuilder) {}
+
+  protected login = this.formBuilder.group({
+    code: ['', [V.required, V.minLength(4), V.maxLength(8)]],
+    password: ['', V.required, V.minLength(4), V.maxLength(8)],
+  });
+}

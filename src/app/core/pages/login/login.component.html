@@ -1,5 +1,6 @@
 <main class="mt-20 px-6">
   <form
+    [formGroup]="login"
     class="card bg-base-100 max-w-[480px] mx-auto shadow-xl border-primary border-t-2 form-control gap-4"
   >
     <div class="card-body w-full">
@@ -7,10 +8,7 @@
 
       <fieldset class="w-full">
         <legend>
-          <label for="code"
-            >Code
-            <strong class="text-red-500">*</strong>
-          </label>
+          <label for="code">Código</label>
         </legend>
         <input
           id="code"
@@ -24,21 +22,23 @@
 
       <fieldset class="w-full">
         <legend>
-          <label for="password"
-            >Senha
-            <strong class="text-red-500">*</strong>
-          </label>
+          <label for="password">Senha </label>
         </legend>
         <input
           id="password"
+          type="password"
           formControlName="password"
           class="input input-bordered w-full"
           placeholder="Digite sua senha"
+          [maxlength]="8"
         />
       </fieldset>
 
-      <div class="card-actions justify-end">
-        <button class="btn btn-primary">Entrar</button>
+      <div class="card-actions justify-end mt-4">
+        <button class="btn btn-primary">
+          Entrar
+          <ng-icon name="heroArrowRight"></ng-icon>
+        </button>
       </div>
     </div>
   </form>

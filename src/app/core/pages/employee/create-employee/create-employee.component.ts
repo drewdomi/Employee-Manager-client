@@ -6,8 +6,7 @@ import {
   Validators as V,
 } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { NgIconComponent, provideIcons } from '@ng-icons/core';
-import { heroArrowLeft, heroCheck } from '@ng-icons/heroicons/outline';
+import { NgIconComponent } from '@ng-icons/core';
 import { NgxMaskDirective, NgxMaskPipe } from 'ngx-mask';
 import { ToastrService } from 'ngx-toastr';
 
@@ -20,7 +19,6 @@ import { markFormGroupTouched } from '../../../utils/validators/mark-form-group-
   standalone: true,
   templateUrl: './create-employee.component.html',
   styleUrl: './create-employee.component.scss',
-  viewProviders: [provideIcons({ heroCheck, heroArrowLeft })],
   imports: [
     CommonModule,
     ReactiveFormsModule,
