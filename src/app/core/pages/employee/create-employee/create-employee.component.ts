@@ -6,6 +6,7 @@ import {
   Validators as V,
 } from '@angular/forms';
 import { civilStates } from '../../../utils/constands/civil-states';
+import { markFormGroupTouched } from '../../../utils/validators/mark-form-group-touched';
 
 @Component({
   standalone: true,
@@ -31,6 +32,9 @@ export class CreateEmployeeComponent {
   });
 
   onSubmit() {
+    if (this.createEmployee.invalid)
+      return markFormGroupTouched(this.createEmployee);
+
     console.log(this.createEmployee.value);
   }
 }
