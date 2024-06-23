@@ -1,8 +1,8 @@
 import { Pipe, type PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'appCpfFormat',
   standalone: true,
+  name: 'cpfFormat',
 })
 export class CpfFormatPipe implements PipeTransform {
   transform(value: string): string {
