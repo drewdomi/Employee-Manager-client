@@ -5,6 +5,9 @@ import {
   ReactiveFormsModule,
   Validators as V,
 } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { NgIconComponent, provideIcons } from '@ng-icons/core';
+import { heroArrowLeft, heroCheck } from '@ng-icons/heroicons/outline';
 import { NgxMaskDirective, NgxMaskPipe } from 'ngx-mask';
 import { civilStates } from '../../../utils/constands/civil-states';
 import { markFormGroupTouched } from '../../../utils/validators/mark-form-group-touched';
@@ -14,7 +17,15 @@ import { markFormGroupTouched } from '../../../utils/validators/mark-form-group-
   selector: 'app-create-employee',
   templateUrl: './create-employee.component.html',
   styleUrl: './create-employee.component.scss',
-  imports: [CommonModule, ReactiveFormsModule, NgxMaskDirective, NgxMaskPipe],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    NgxMaskDirective,
+    NgxMaskPipe,
+    RouterModule,
+    NgIconComponent,
+  ],
+  viewProviders: [provideIcons({ heroCheck, heroArrowLeft })],
 })
 export class CreateEmployeeComponent {
   civilStates = civilStates;

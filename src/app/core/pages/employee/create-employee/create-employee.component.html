@@ -2,11 +2,7 @@
   <h2 class="text-xl font-semibold">Cadastrar funcionário</h2>
 </div>
 
-<form
-  class="form-control gap-2"
-  [formGroup]="createEmployee"
-  (ngSubmit)="onSubmit()"
->
+<form class="form-control gap-2" [formGroup]="createEmployee">
   <fieldset class="w-full">
     <legend>
       <label for="name"
@@ -182,11 +178,14 @@
     </fieldset>
   </div>
 
-  <div class="mt-4 flex justify-end">
-    <button
-      class="w-full sm:w-min btn btn-md btn-success text-white bg-green-600"
-      role="button"
-    >
+  <div class="mt-6 flex gap-4 sm:justify-end flex-col-reverse sm:flex-row">
+    <button class="w-full sm:w-28 btn btn-md" routerLink="/">
+      <ng-icon name="heroArrowLeft"></ng-icon>
+      Voltar
+    </button>
+
+    <button class="w-full sm:w-32 btn btn-neutral btn-md" (click)="onSubmit()">
+      <ng-icon name="heroCheck"></ng-icon>
       Salvar
     </button>
   </div>

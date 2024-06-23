@@ -1,11 +1,12 @@
-<div class="flex justify-between items-center">
+<div class="flex justify-between items-center mb-12">
   <h2 class="text-xl font-semibold">Todos os funcionários</h2>
   <a routerLink="create" class="btn btn-md btn-neutral" role="button"
-    >Cadastrar funcionário</a
+    >Cadastrar</a
   >
 </div>
 
 <table
+  *ngIf="employees$ | async as employees; else noContent"
   class="mt-4 table table-md table-zebra shadow-sm border rounded border-slate-200"
 >
   <thead>
@@ -17,7 +18,7 @@
     </tr>
   </thead>
   <tbody>
-    @for (employee of employees$ | async; track $index) {
+    @for (employee of employees; track $index) {
     <tr>
       <td>
         <div class="flex items-center gap-3">
@@ -41,3 +42,7 @@
     }
   </tbody>
 </table>
+
+<ng-template #noContent>
+  <h4 class="text-center">Nenhum cadastro disponivel</h4>
+</ng-template>
