@@ -9,6 +9,7 @@ import { RouterModule } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { heroArrowLeft, heroCheck } from '@ng-icons/heroicons/outline';
 import { NgxMaskDirective, NgxMaskPipe } from 'ngx-mask';
+import { ToastrService } from 'ngx-toastr';
 import { CreateEmployee } from '../../../models/employee';
 import { EmployeeService } from '../../../services/employee.service';
 import { civilStates } from '../../../utils/constands/civil-states';
@@ -34,7 +35,8 @@ export class CreateEmployeeComponent {
 
   constructor(
     private formBuilder: NonNullableFormBuilder,
-    private employeeService: EmployeeService
+    private employeeService: EmployeeService,
+    private toastr: ToastrService
   ) {}
 
   protected createEmployee = this.formBuilder.group({
@@ -58,11 +60,11 @@ export class CreateEmployeeComponent {
       .create(this.createEmployee.value as CreateEmployee)
       .subscribe({
         next: () => {
+          this.toastr.success('Feito', 'Funcionário criado');
           this.createEmployee.reset();
-          alert('Employee created');
         },
         error: () => {
-          alert('Error on employee creation');
+          this.toastr.error('Erro', 'Erro ao criar funcionário');
         },
       });
   }
