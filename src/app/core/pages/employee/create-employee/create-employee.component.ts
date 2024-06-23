@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {
   NonNullableFormBuilder,
   ReactiveFormsModule,
@@ -29,13 +29,11 @@ import { markFormGroupTouched } from '../../../utils/validators/mark-form-group-
   ],
 })
 export class CreateEmployeeComponent {
-  civilStates = civilStates;
+  readonly civilStates = civilStates;
 
-  constructor(
-    private formBuilder: NonNullableFormBuilder,
-    private employeeService: EmployeeService,
-    private toastr: ToastrService
-  ) {}
+  private formBuilder = inject(NonNullableFormBuilder);
+  private employeeService = inject(EmployeeService);
+  private toastr = inject(ToastrService);
 
   protected createEmployee = this.formBuilder.group({
     name: ['', [V.required, V.minLength(3), V.maxLength(80)]],

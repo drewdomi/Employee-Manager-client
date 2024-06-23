@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import {
   NonNullableFormBuilder,
   ReactiveFormsModule,
@@ -15,7 +15,7 @@ import { NgIconComponent } from '@ng-icons/core';
   imports: [CommonModule, ReactiveFormsModule, NgIconComponent],
 })
 export class LoginComponent {
-  constructor(private formBuilder: NonNullableFormBuilder) {}
+  private formBuilder = inject(NonNullableFormBuilder);
 
   protected login = this.formBuilder.group({
     code: ['', [V.required, V.minLength(4), V.maxLength(8)]],

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { EmployeeService } from '../../services/employee.service';
 import { CpfFormatPipe } from '../../utils/cpfFormat.pipe';
@@ -11,7 +11,6 @@ import { CpfFormatPipe } from '../../utils/cpfFormat.pipe';
   imports: [CommonModule, RouterModule, CpfFormatPipe],
 })
 export class EmployeeComponent {
-  constructor(private employeeService: EmployeeService) {}
-
+  private employeeService = inject(EmployeeService);
   readonly employees$ = this.employeeService.findAll();
 }
