@@ -1,1 +1,44 @@
-<p>employee works!</p>
+<div class="w-[1200px] mx-auto mt-10">
+  <div class="flex justify-between items-center">
+    <h2 class="text-xl font-semibold">Todos os funcionários</h2>
+    <a routerLink="create" class="btn btn-md btn-neutral" role="button"
+      >Cadastrar funcionário</a
+    >
+  </div>
+  <table
+    class="mt-4 table table-md table-zebra shadow-sm border rounded border-slate-200"
+  >
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>CPF</th>
+        <th>Data de nascimento</th>
+        <th>Estado civil</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (employee of employees$ | async; track $index) {
+      <tr>
+        <td>
+          <div class="flex items-center gap-3">
+            <div>
+              <p>{{ employee.name }}</p>
+            </div>
+          </div>
+        </td>
+        <td>
+          <p>{{ employee.cpf | appCpfFormat }}</p>
+        </td>
+        <td>
+          <p>
+            {{ employee.birthDate | date : "dd/MM/yyyy" }}
+          </p>
+        </td>
+        <td>
+          <p>{{ employee.civilState }}</p>
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>
