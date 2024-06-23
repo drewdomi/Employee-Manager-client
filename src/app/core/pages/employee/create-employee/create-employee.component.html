@@ -41,142 +41,150 @@
     />
   </fieldset>
 
-  <fieldset class="w-full">
-    <legend>
-      <label for="rg"
-        >RG
-        <strong class="text-red-500">*</strong>
-      </label>
-    </legend>
-    <input
-      id="rg"
-      type="text"
-      formControlName="rg"
-      class="input input-bordered w-full"
-      placeholder="12.345.678-9"
-      mask="00.000.000-0"
-    />
-  </fieldset>
+  <div class="flex flex-col md:flex-row gap-4">
+    <fieldset class="w-full">
+      <legend>
+        <label for="rg"
+          >RG
+          <strong class="text-red-500">*</strong>
+        </label>
+      </legend>
+      <input
+        id="rg"
+        type="text"
+        formControlName="rg"
+        class="input input-bordered w-full"
+        placeholder="12.345.678-9"
+        mask="00.000.000-0"
+      />
+    </fieldset>
 
-  <fieldset class="w-full">
-    <legend>
-      <label for="cpf"
-        >CPF
-        <strong class="text-red-500">*</strong>
-      </label>
-    </legend>
-    <input
-      id="cpf"
-      formControlName="cpf"
-      class="input input-bordered w-full"
-      placeholder="123.456.789-00"
-      mask="000.000.000-00"
-    />
-  </fieldset>
+    <fieldset class="w-full">
+      <legend>
+        <label for="cpf"
+          >CPF
+          <strong class="text-red-500">*</strong>
+        </label>
+      </legend>
+      <input
+        id="cpf"
+        formControlName="cpf"
+        class="input input-bordered w-full"
+        placeholder="123.456.789-00"
+        [maxlength]="14"
+        mask="CPF_CNPJ"
+      />
+    </fieldset>
+  </div>
+  <div class="flex flex-col md:flex-row gap-4">
+    <fieldset class="w-full">
+      <legend>
+        <label for="birthDate"
+          >Data de nascimento
+          <strong class="text-red-500">*</strong>
+        </label>
+      </legend>
+      <input
+        id="birthDate"
+        formControlName="birthDate"
+        type="date"
+        class="input input-bordered w-full"
+        placeholder="01/01/2001"
+      />
+    </fieldset>
 
-  <fieldset class="w-full">
-    <legend>
-      <label for="birthDate"
-        >Data de nascimento
-        <strong class="text-red-500">*</strong>
-      </label>
-    </legend>
-    <input
-      id="birthDate"
-      formControlName="birthDate"
-      type="date"
-      class="input input-bordered w-full"
-      placeholder="01/01/2001"
-    />
-  </fieldset>
+    <fieldset class="w-full">
+      <legend>
+        <label for="civilState"
+          >Estado civil
+          <strong class="text-red-500">*</strong>
+        </label>
+      </legend>
+      <select
+        id="civilState"
+        class="select select-bordered w-full"
+        formControlName="civilState"
+        place
+      >
+        <option disabled selected value="">Selecione o estado civil</option>
+        @for (civilState of civilStates; track $index) {
+        <option [value]="civilState.value">{{ civilState.label }}</option>
+        }
+      </select>
+    </fieldset>
+  </div>
 
-  <fieldset class="w-full">
-    <legend>
-      <label for="civilState"
-        >Estado civil
-        <strong class="text-red-500">*</strong>
-      </label>
-    </legend>
-    <select
-      class="select select-bordered w-full"
-      formControlName="civilState"
-      place
-    >
-      <option disabled selected value="">Selecione o estado civil</option>
-      @for (civilState of civilStates; track $index) {
-      <option [value]="civilState.value">{{ civilState.label }}</option>
-      }
-    </select>
-  </fieldset>
+  <div class="flex flex-col md:flex-row gap-4">
+    <fieldset class="w-full">
+      <legend>
+        <label for="admissionDate"
+          >Data de Admissão
+          <strong class="text-red-500">*</strong>
+        </label>
+      </legend>
+      <input
+        id="admissionDate"
+        formControlName="admissionDate"
+        type="date"
+        class="input input-bordered w-full"
+        placeholder="01/01/2001"
+      />
+    </fieldset>
 
-  <fieldset class="w-full">
-    <legend>
-      <label for="plan"
-        >Plano
-        <strong class="text-red-500">*</strong>
-      </label>
-    </legend>
-    <input
-      id="plan"
-      formControlName="plan"
-      class="input input-bordered w-full uppercase"
-      placeholder="F90J"
-      [validation]="false"
-      mask="AAAAAAAAAA"
-    />
-  </fieldset>
+    <fieldset class="w-full">
+      <legend>
+        <label for="validityDate"
+          >Data de vigência
+          <strong class="text-red-500">*</strong>
+        </label>
+      </legend>
+      <input
+        id="validityDate"
+        formControlName="validityDate"
+        type="date"
+        class="input input-bordered w-full"
+        placeholder="01/01/2001"
+      />
+    </fieldset>
+  </div>
 
-  <fieldset class="w-full">
-    <legend>
-      <label for="admissionDate"
-        >Data de Admissão
-        <strong class="text-red-500">*</strong>
-      </label>
-    </legend>
-    <input
-      id="admissionDate"
-      formControlName="admissionDate"
-      type="date"
-      class="input input-bordered w-full"
-      placeholder="01/01/2001"
-    />
-  </fieldset>
+  <div class="flex flex-col md:flex-row gap-4">
+    <fieldset class="w-full">
+      <legend>
+        <label for="plan"
+          >Plano
+          <strong class="text-red-500">*</strong>
+        </label>
+      </legend>
+      <input
+        id="plan"
+        formControlName="plan"
+        class="input input-bordered w-full uppercase"
+        placeholder="F90J"
+        [validation]="false"
+        mask="AAAAAAAAAA"
+      />
+    </fieldset>
+    <fieldset class="w-full">
+      <legend>
+        <label for="registration"
+          >Matrícula
+          <strong class="text-red-500">*</strong>
+        </label>
+      </legend>
+      <input
+        id="registration"
+        formControlName="registration"
+        class="input input-bordered w-full"
+        placeholder="99999"
+        mask="00000009"
+      />
+    </fieldset>
+  </div>
 
-  <fieldset class="w-full">
-    <legend>
-      <label for="validityDate"
-        >Data de vigência
-        <strong class="text-red-500">*</strong>
-      </label>
-    </legend>
-    <input
-      id="validityDate"
-      formControlName="validityDate"
-      type="date"
-      class="input input-bordered w-full"
-      placeholder="01/01/2001"
-    />
-  </fieldset>
-
-  <fieldset class="w-full">
-    <legend>
-      <label for="registration"
-        >Matrícula
-        <strong class="text-red-500">*</strong>
-      </label>
-    </legend>
-    <input
-      id="registration"
-      formControlName="registration"
-      class="input input-bordered w-full"
-      placeholder="99999"
-      mask="00000009"
-    />
-  </fieldset>
-
-  <div class="mt-4">
+  <div class="mt-4 flex justify-end">
     <button
-      class="w-full btn btn-md btn-success text-white bg-green-600"
+      class="w-full sm:w-min btn btn-md btn-success text-white bg-green-600"
       role="button"
     >
       Salvar

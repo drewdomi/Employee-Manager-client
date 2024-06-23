@@ -25,7 +25,7 @@ export class CreateEmployeeComponent {
     name: ['', [V.required, V.minLength(3), V.maxLength(80)]],
     motherName: ['', [V.required, V.minLength(3), V.maxLength(80)]],
     rg: ['', [V.required]],
-    cpf: ['', [V.required]],
+    cpf: ['', [V.required, V.minLength(11), V.maxLength(11)]],
     birthDate: ['', [V.required]],
     plan: ['', [V.required, V.minLength(4), V.maxLength(10)]],
     civilState: ['', [V.required]],
@@ -38,6 +38,6 @@ export class CreateEmployeeComponent {
     if (this.createEmployee.invalid)
       return markFormGroupTouched(this.createEmployee);
 
-    console.log(this.createEmployee.controls.plan.value);
+    console.log(this.createEmployee.value);
   }
 }
