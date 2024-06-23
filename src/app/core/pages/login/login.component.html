@@ -1,0 +1,45 @@
+<main class="mt-20 px-6">
+  <form
+    class="card bg-base-100 max-w-[480px] mx-auto shadow-xl border-primary border-t-2 form-control gap-4"
+  >
+    <div class="card-body w-full">
+      <h2 class="text-2xl text-center font-bold">Login</h2>
+
+      <fieldset class="w-full">
+        <legend>
+          <label for="code"
+            >Code
+            <strong class="text-red-500">*</strong>
+          </label>
+        </legend>
+        <input
+          id="code"
+          formControlName="code"
+          class="input input-bordered w-full"
+          placeholder="Digite o código"
+          [minlength]="4"
+          [maxlength]="8"
+        />
+      </fieldset>
+
+      <fieldset class="w-full">
+        <legend>
+          <label for="password"
+            >Senha
+            <strong class="text-red-500">*</strong>
+          </label>
+        </legend>
+        <input
+          id="password"
+          formControlName="password"
+          class="input input-bordered w-full"
+          placeholder="Digite sua senha"
+        />
+      </fieldset>
+
+      <div class="card-actions justify-end">
+        <button class="btn btn-primary">Entrar</button>
+      </div>
+    </div>
+  </form>
+</main>

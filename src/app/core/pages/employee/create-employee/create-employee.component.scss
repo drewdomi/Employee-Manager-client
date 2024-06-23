@@ -1,13 +1,1 @@
-legend {
-  @apply mb-1;
-}
 
-input.ng-valid.ng-touched,
-select.ng-valid.ng-touched {
-  @apply input-success;
-}
-
-input.ng-invalid.ng-touched,
-select.ng-invalid.ng-touched {
-  @apply input-error;
-}

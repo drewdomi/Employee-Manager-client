@@ -16,6 +16,13 @@ export const APP_ROUTES: Routes = [
     ],
   },
   {
+    path: 'login',
+    loadComponent: () =>
+      import('./core/pages/login/login.component').then(
+        (c) => c.LoginComponent
+      ),
+  },
+  {
     path: '**',
     redirectTo: '',
   },

@@ -6,7 +6,6 @@ import { CpfFormatPipe } from '../../utils/cpfFormat.pipe';
 
 @Component({
   standalone: true,
-  selector: 'app-employee',
   templateUrl: './employee.component.html',
   styleUrl: './employee.component.scss',
   imports: [CommonModule, RouterModule, CpfFormatPipe],

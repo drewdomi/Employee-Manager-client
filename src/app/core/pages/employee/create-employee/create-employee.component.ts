@@ -18,7 +18,6 @@ import { markFormGroupTouched } from '../../../utils/validators/mark-form-group-
 
 @Component({
   standalone: true,
-  selector: 'app-create-employee',
   templateUrl: './create-employee.component.html',
   styleUrl: './create-employee.component.scss',
   viewProviders: [provideIcons({ heroCheck, heroArrowLeft })],
