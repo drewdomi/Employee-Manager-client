@@ -50,11 +50,11 @@
     </legend>
     <input
       id="rg"
+      type="text"
       formControlName="rg"
       class="input input-bordered w-full"
       placeholder="12.345.678-9"
-      [minlength]="9"
-      [maxlength]="9"
+      mask="00.000.000-0"
     />
   </fieldset>
 
@@ -70,8 +70,7 @@
       formControlName="cpf"
       class="input input-bordered w-full"
       placeholder="123.456.789-00"
-      [minlength]="11"
-      [maxlength]="11"
+      mask="000.000.000-00"
     />
   </fieldset>
 
@@ -154,8 +153,7 @@
       formControlName="registration"
       class="input input-bordered w-full"
       placeholder="99999"
-      [minlength]="7"
-      [maxlength]="8"
+      mask="00000009"
     />
   </fieldset>
 
