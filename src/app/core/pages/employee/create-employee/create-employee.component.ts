@@ -27,6 +27,7 @@ export class CreateEmployeeComponent {
     rg: ['', [V.required]],
     cpf: ['', [V.required]],
     birthDate: ['', [V.required]],
+    plan: ['', [V.required, V.minLength(4), V.maxLength(10)]],
     civilState: ['', [V.required]],
     admissionDate: ['', [V.required]],
     validityDate: ['', [V.required]],
@@ -36,5 +37,7 @@ export class CreateEmployeeComponent {
   onSubmit() {
     if (this.createEmployee.invalid)
       return markFormGroupTouched(this.createEmployee);
+
+    console.log(this.createEmployee.controls.plan.value);
   }
 }

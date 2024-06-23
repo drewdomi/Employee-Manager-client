@@ -111,6 +111,23 @@
 
   <fieldset class="w-full">
     <legend>
+      <label for="plan"
+        >Plano
+        <strong class="text-red-500">*</strong>
+      </label>
+    </legend>
+    <input
+      id="plan"
+      formControlName="plan"
+      class="input input-bordered w-full uppercase"
+      placeholder="F90J"
+      [validation]="false"
+      mask="AAAAAAAAAA"
+    />
+  </fieldset>
+
+  <fieldset class="w-full">
+    <legend>
       <label for="admissionDate"
         >Data de Admissão
         <strong class="text-red-500">*</strong>
