@@ -6,7 +6,7 @@
 </div>
 
 <table
-  *ngIf="employees$ | async as employees; else noContent"
+  *ngIf="employees$ | async as employees"
   class="mt-4 table table-md table-zebra shadow-sm border rounded border-slate-200"
 >
   <thead>
@@ -46,7 +46,3 @@
     }
   </tbody>
 </table>
-
-<ng-template #noContent>
-  <h4 class="text-center">Nenhum cadastro disponivel</h4>
-</ng-template>
