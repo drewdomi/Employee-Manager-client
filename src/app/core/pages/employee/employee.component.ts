@@ -12,5 +12,6 @@ import { CpfFormatPipe } from '../../utils/cpfFormat.pipe';
 })
 export class EmployeeComponent {
   private employeeService = inject(EmployeeService);
+
   readonly employees$ = this.employeeService.findAll();
 }

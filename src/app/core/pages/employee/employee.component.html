@@ -1,48 +1,50 @@
 <div class="flex justify-between items-center mb-12">
   <h2 class="text-xl font-semibold">Todos os funcionários</h2>
-  <a routerLink="create" class="btn btn-md btn-neutral" role="button"
-    >Cadastrar</a
-  >
+  <a routerLink="create" class="btn btn-md btn-neutral" role="button">
+    Cadastrar
+  </a>
 </div>
 
-<table
-  *ngIf="employees$ | async as employees"
-  class="mt-4 table table-md table-zebra shadow-sm border rounded border-slate-200"
->
-  <thead>
-    <tr>
-      <th>Nome</th>
-      <th>CPF</th>
-      <th>Data de nascimento</th>
-      <th>Plano</th>
-      <th>Estado civil</th>
-    </tr>
-  </thead>
-  <tbody>
-    @for (employee of employees; track $index) {
-    <tr>
-      <td>
-        <div class="flex items-center gap-3">
-          <div>
-            <p>{{ employee.name }}</p>
-          </div>
-        </div>
-      </td>
-      <td>
-        <p>{{ employee.cpf | cpfFormat }}</p>
-      </td>
-      <td>
-        <p>
-          {{ employee.birthDate | date : "dd/MM/yyyy" }}
-        </p>
-      </td>
-      <td>
-        <p class="uppercase">{{ employee.plan }}</p>
-      </td>
-      <td>
-        <p>{{ employee.civilState }}</p>
-      </td>
-    </tr>
-    }
-  </tbody>
-</table>
+<div *ngIf="employees$ | async as employees">
+  <ng-container *ngIf="employees.length > 0; else noContent">
+    <table
+      class="mt-4 table table-md table-zebra shadow-sm border rounded border-slate-200"
+    >
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>CPF</th>
+          <th>Data de nascimento</th>
+          <th>Estado civil</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let employee of employees">
+          <tr>
+            <td>
+              <div class="flex items-center gap-3">
+                <div>
+                  <p>{{ employee.name }}</p>
+                </div>
+              </div>
+            </td>
+            <td>
+              <p>{{ employee.cpf | cpfFormat }}</p>
+            </td>
+            <td>
+              <p>
+                {{ employee.birthDate | date : "dd/MM/yyyy" }}
+              </p>
+            </td>
+            <td>
+              <p>{{ employee.civilState }}</p>
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </ng-container>
+  <ng-template #noContent>
+    <p class="text-center font-medium mt-24">Nenhum funcionário cadastrado</p>
+  </ng-template>
+</div>

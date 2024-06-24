@@ -16,7 +16,7 @@ export const appConfig: ApplicationConfig = {
     provideEnvironmentNgxMask(),
     provideAnimations(),
     provideToastr({
-      timeOut: 10000,
+      timeOut: 5000,
       preventDuplicates: true,
       tapToDismiss: true,
       progressBar: true,
