@@ -1,11 +1,14 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { ErrorHandler, Injectable } from '@angular/core';
+import { ErrorHandler, inject, Injectable } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ErrorHandlerService implements ErrorHandler {
+  private readonly toastr = inject(ToastrService);
+
   private readonly errorHandlers: {
     [key: number]: (response: HttpErrorResponse) => void;
   };
@@ -19,7 +22,9 @@ export class ErrorHandlerService implements ErrorHandler {
         localStorage.clear();
         location.reload();
       },
-      401: (_res: HttpErrorResponse) => {},
+      401: (_res: HttpErrorResponse) => {
+        this.toastr.error('Erro', 'Credenciais inválidas');
+      },
       0: (_res: HttpErrorResponse) => {},
     };
   }
