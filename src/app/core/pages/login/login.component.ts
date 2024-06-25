@@ -1,5 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  OnInit,
+} from '@angular/core';
 import {
   NonNullableFormBuilder,
   ReactiveFormsModule,
@@ -18,7 +23,7 @@ import { markFormGroupTouched } from '../../utils/validators/mark-form-group-tou
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [CommonModule, ReactiveFormsModule, NgIconComponent],
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   private formBuilder = inject(NonNullableFormBuilder);
   private authService = inject(AuthService);
   private router = inject(Router);
@@ -28,17 +33,13 @@ export class LoginComponent {
     password: ['', V.required],
   });
 
+  ngOnInit() {
+    if (this.authService.getLogged()) this.router.navigateByUrl('/');
+  }
+
   onLogin() {
     if (this.login.invalid) return markFormGroupTouched(this.login);
 
-    this.authService.login(this.login.value as Login).subscribe({
-      next: (res) => {
-        console.log(res);
-        this.router.navigateByUrl('');
-      },
-      error: (res) => {
-        console.log(res);
-      },
-    });
+    this.authService.login(this.login.value as Login).subscribe();
   }
 }
