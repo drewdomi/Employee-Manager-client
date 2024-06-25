@@ -14,19 +14,13 @@ export class ErrorHandlerService implements ErrorHandler {
     this.errorHandlers = {
       422: (_res: HttpErrorResponse) => {},
       409: (_res: HttpErrorResponse) => {},
-      404: (_res: HttpErrorResponse) => {
-        localStorage.clear();
-        location.reload();
-      },
+      404: (_res: HttpErrorResponse) => {},
       403: (_res: HttpErrorResponse) => {
         localStorage.clear();
         location.reload();
       },
       401: (_res: HttpErrorResponse) => {},
-      0: (_res: HttpErrorResponse) => {
-        localStorage.clear();
-        location.reload();
-      },
+      0: (_res: HttpErrorResponse) => {},
     };
   }
 

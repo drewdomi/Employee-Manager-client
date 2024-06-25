@@ -38,6 +38,9 @@ importers:
       '@ng-icons/heroicons':
         specifier: ^28.0.0
         version: 28.0.0
+      '@ngneat/query':
+        specifier: ^2.0.1
+        version: 2.0.1(@angular/core@18.0.4(rxjs@7.8.1)(zone.js@0.14.7))(@tanstack/query-core@5.48.0)
       ngx-mask:
         specifier: ^17.0.8
         version: 17.0.8(@angular/common@18.0.4(@angular/core@18.0.4(rxjs@7.8.1)(zone.js@0.14.7))(rxjs@7.8.1))(@angular/core@18.0.4(rxjs@7.8.1)(zone.js@0.14.7))(@angular/forms@18.0.4(@angular/common@18.0.4(@angular/core@18.0.4(rxjs@7.8.1)(zone.js@0.14.7))(rxjs@7.8.1))(@angular/core@18.0.4(rxjs@7.8.1)(zone.js@0.14.7))(@angular/platform-browser@18.0.4(@angular/animations@18.0.4(@angular/core@18.0.4(rxjs@7.8.1)(zone.js@0.14.7)))(@angular/common@18.0.4(@angular/core@18.0.4(rxjs@7.8.1)(zone.js@0.14.7))(rxjs@7.8.1))(@angular/core@18.0.4(rxjs@7.8.1)(zone.js@0.14.7)))(rxjs@7.8.1))
@@ -63,6 +66,9 @@ importers:
       '@angular/compiler-cli':
         specifier: ^18.0.0
         version: 18.0.4(@angular/compiler@18.0.4(@angular/core@18.0.4(rxjs@7.8.1)(zone.js@0.14.7)))(typescript@5.4.5)
+      '@ngneat/query-devtools':
+        specifier: 2.0.0-beta.0
+        version: 2.0.0-beta.0(@angular/core@18.0.4(rxjs@7.8.1)(zone.js@0.14.7))(@tanstack/query-devtools@5.4.2)
       '@types/jasmine':
         specifier: ~5.1.0
         version: 5.1.4
@@ -1287,6 +1293,18 @@ packages:
   '@ng-icons/heroicons@28.0.0':
     resolution: {integrity: sha512-RSGdk1BcCBvlunZK0vysKSeaZueBkEDhSrbEptF+7w2vaOph2erJE9VyUGYhCXxVQ8K1sEkX15w6dxMb6GBaiA==}
 
+  '@ngneat/query-devtools@2.0.0-beta.0':
+    resolution: {integrity: sha512-H2SOT+W9I3slegcY6C8NjsZOm5LfHzKTSJ2lL8Vlu2jLtWe2JEFUzSalrcyCQpbgiUSmsNUMBAVqItI5s5Q17w==}
+    peerDependencies:
+      '@angular/core': '>=16.0.0 <18.0.0'
+      '@tanstack/query-devtools': 5.4.2
+
+  '@ngneat/query@2.0.1':
+    resolution: {integrity: sha512-ODftAJaAWlSCYTA4IP5/6sESd3LD3LXZl5w7woJXOoVb2LZsjlUffFAsl0ADmZ3DAXqJrUM023yHdUFU+dm2QQ==}
+    peerDependencies:
+      '@angular/core': '>=16.0.0 <18.0.0'
+      '@tanstack/query-core': ^5.4.3
+
   '@ngtools/webpack@18.0.5':
     resolution: {integrity: sha512-Dx386WZZn0RwUaBHQYhDW8oi254SxEu8Ty5LHnStqBP6xXdcnsdGel+h9qvJ67He9iu8Rj0PB64EFE4PiklMdQ==}
     engines: {node: ^18.19.1 || ^20.11.1 || >=22.0.0, npm: ^6.11.0 || ^7.5.6 || >=8.0.0, yarn: '>= 1.13.0'}
@@ -1458,6 +1476,12 @@ packages:
 
   '@socket.io/component-emitter@3.1.2':
     resolution: {integrity: sha512-9BCxFwvbGg/RsZK9tjXd8s4UcwR0MWeFQ1XEKIQVVvAGJyINdrqKMcTRyLoK8Rse1GjzLV9cwjWV1olXRWEXVA==}
+
+  '@tanstack/query-core@5.48.0':
+    resolution: {integrity: sha512-lZAfPPeVIqXCswE9SSbG33B6/91XOWt/Iq41bFeWb/mnHwQSIfFRbkS4bfs+WhIk9abRArF9Id2fp0Mgo+hq6Q==}
+
+  '@tanstack/query-devtools@5.4.2':
+    resolution: {integrity: sha512-EXdaMXi8CxZuMp97J5mq6wy1RduOfoWFv5vtA1U+hyqb8Wst6M8kkkjDSdFvGZIRpYY4K8mKLlEFHNUZDG5dtw==}
 
   '@tufjs/canonical-json@2.0.0':
     resolution: {integrity: sha512-yVtV8zsdo8qFHe+/3kw81dSLyF7D576A5cCFCi4X7B39tWT7SekaEFUnvnWJHz+9qO7qJTah1JbrDjWKqFtdWA==}
@@ -5545,6 +5569,18 @@ snapshots:
     dependencies:
       tslib: 2.6.3
 
+  '@ngneat/query-devtools@2.0.0-beta.0(@angular/core@18.0.4(rxjs@7.8.1)(zone.js@0.14.7))(@tanstack/query-devtools@5.4.2)':
+    dependencies:
+      '@angular/core': 18.0.4(rxjs@7.8.1)(zone.js@0.14.7)
+      '@tanstack/query-devtools': 5.4.2
+      tslib: 2.6.3
+
+  '@ngneat/query@2.0.1(@angular/core@18.0.4(rxjs@7.8.1)(zone.js@0.14.7))(@tanstack/query-core@5.48.0)':
+    dependencies:
+      '@angular/core': 18.0.4(rxjs@7.8.1)(zone.js@0.14.7)
+      '@tanstack/query-core': 5.48.0
+      tslib: 2.6.3
+
   '@ngtools/webpack@18.0.5(@angular/compiler-cli@18.0.4(@angular/compiler@18.0.4(@angular/core@18.0.4(rxjs@7.8.1)(zone.js@0.14.7)))(typescript@5.4.5))(typescript@5.4.5)(webpack@5.91.0(esbuild@0.21.3))':
     dependencies:
       '@angular/compiler-cli': 18.0.4(@angular/compiler@18.0.4(@angular/core@18.0.4(rxjs@7.8.1)(zone.js@0.14.7)))(typescript@5.4.5)
@@ -5719,6 +5755,10 @@ snapshots:
       '@sigstore/protobuf-specs': 0.3.2
 
   '@socket.io/component-emitter@3.1.2': {}
+
+  '@tanstack/query-core@5.48.0': {}
+
+  '@tanstack/query-devtools@5.4.2': {}
 
   '@tufjs/canonical-json@2.0.0': {}
 

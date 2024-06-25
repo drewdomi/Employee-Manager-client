@@ -5,50 +5,55 @@
   </a>
 </div>
 
-<div *ngIf="employees$ | async as employees">
-  <ng-container *ngIf="employees.length > 0; else noContent">
-    <table
-      class="mt-4 table table-md table-zebra shadow-sm border rounded border-slate-200"
-    >
-      <thead>
-        <tr>
-          <th>Nome</th>
-          <th>CPF</th>
-          <th>Data de nascimento</th>
-          <th>Estado civil</th>
-        </tr>
-      </thead>
-      <tbody>
-        <ng-container *ngFor="let employee of employees">
-          <tr>
-            <td>
-              <div class="flex items-center gap-3">
-                <div>
-                  <p>{{ employee.name }}</p>
-                </div>
-              </div>
-            </td>
-            <td>
-              <p>{{ employee.cpf | cpfFormat }}</p>
-            </td>
-            <td>
-              <p>
-                {{ employee.birthDate | date : "dd/MM/yyyy" }}
-              </p>
-            </td>
-            <td>
-              <p>{{ employee.civilState }}</p>
-            </td>
-          </tr>
-        </ng-container>
-      </tbody>
-    </table>
-  </ng-container>
-  <ng-template #noContent>
-    <p class="text-center font-medium mt-24">Nenhum funcionário cadastrado</p>
-  </ng-template>
-</div>
+@if (employees().isFetching) {
+<span class="flex justify-center mt-6">
+  <div class="loading loading-spinner text-neutral w-[36px]"></div>
+</span>
+} @else { @if (employees().data!.length > 0) {
 
-<hr />
+<table
+  class="mt-4 table table-md table-zebra shadow-sm border rounded border-slate-200"
+>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>CPF</th>
+      <th>Data de nascimento</th>
+      <th>Estado civil</th>
+      <th>Opções</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let employee of employees().data">
+      <tr>
+        <td>
+          <div class="flex items-center gap-3">
+            <div>
+              <p>{{ employee.name }}</p>
+            </div>
+          </div>
+        </td>
+        <td>
+          <p>{{ employee.cpf | cpfFormat }}</p>
+        </td>
+        <td>
+          <p>
+            {{ employee.birthDate | date : "dd/MM/yyyy" }}
+          </p>
+        </td>
+        <td>
+          <p>{{ employee.civilState }}</p>
+        </td>
 
-<button class="btn btn-ghost" (click)="logout()">Logout</button>
+        <td>
+          <button class="btn btn-ghost btn-circle">
+            <ng-icon name="heroCog6Tooth"></ng-icon>
+          </button>
+        </td>
+      </tr>
+    </ng-container>
+  </tbody>
+</table>
+} @else {
+<p class="text-center font-medium mt-24">Nenhum funcionário cadastrado 🤨</p>
+} }
