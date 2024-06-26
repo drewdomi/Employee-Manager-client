@@ -1,0 +1,9 @@
+:host {
+  ul.dropdown-content {
+    @apply px-0 font-medium;
+
+    li a {
+      @apply rounded-none;
+    }
+  }
+}

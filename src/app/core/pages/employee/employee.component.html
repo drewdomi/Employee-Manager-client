@@ -1,6 +1,13 @@
 <div class="flex justify-between items-center mb-12">
   <h2 class="text-xl font-semibold">Todos os funcionários</h2>
-  <a routerLink="create" class="btn btn-md btn-neutral" role="button">
+  <a
+    routerLink="create"
+    class="btn btn-md btn-neutral hover:animate-none"
+    [ngClass]="{
+      'animate-pulse': employees().data!.length === 0
+    }"
+    role="button"
+  >
     Cadastrar
   </a>
 </div>
@@ -12,15 +19,15 @@
 } @else { @if (employees().data!.length > 0) {
 
 <table
-  class="mt-4 table table-md table-zebra shadow-sm border rounded border-slate-200"
+  class="mt-4 table table-md table-zebra shadow-sm border rounded border-slate-200 -z-10"
 >
   <thead>
-    <tr>
+    <tr class="bg-neutral-200">
       <th>Nome</th>
       <th>CPF</th>
       <th>Data de nascimento</th>
       <th>Estado civil</th>
-      <th>Opções</th>
+      <th class="text-left">Opções</th>
     </tr>
   </thead>
   <tbody>
@@ -44,7 +51,6 @@
         <td>
           <p>{{ employee.civilState }}</p>
         </td>
-
         <td>
           <button class="btn btn-ghost btn-circle">
             <ng-icon name="heroCog6Tooth"></ng-icon>
