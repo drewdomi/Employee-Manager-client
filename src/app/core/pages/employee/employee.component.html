@@ -16,7 +16,7 @@
 <span class="flex justify-center mt-6">
   <div class="loading loading-spinner text-neutral w-[36px]"></div>
 </span>
-} @else { @if (employees().data!.length > 0) {
+} @if (employees().data!.length > 0) {
 
 <table
   class="mt-4 table table-md table-zebra shadow-sm border rounded border-slate-200 -z-10"
@@ -62,4 +62,4 @@
 </table>
 } @else {
 <p class="text-center font-medium mt-24">Nenhum funcionário cadastrado 🤨</p>
-} }
+}
